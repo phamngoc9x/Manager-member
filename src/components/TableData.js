@@ -24,8 +24,8 @@ class TableData extends Component {
                   <td>{data.permission===1 ? 'Admin' :data.permission===2 ? 'Modrator' : 'Normal'}</td>
                   <td>
                     <div className="btn-group">
-                      <div className="btn-warning btn"><i className="fa fa-edit" /> Sửa</div>
-                      <div className="btn-danger btn"><i className="fa fa-close" /> Xóa</div>
+                      <div className="btn-warning btn" onClick={()=>this.props.formChange(data)}><i className="fa fa-edit" /> Sửa</div>
+                      <div className="btn-danger btn" onClick={()=> this.props.getID(data.id)}><i className="fa fa-close" /> Xóa</div>
                     </div>
                   </td>
                 </tr>
