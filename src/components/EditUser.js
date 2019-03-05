@@ -14,7 +14,7 @@ class EditUser extends Component {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
-      [name]:[value]
+      [name]:value
     })
   }
 
@@ -23,7 +23,7 @@ class EditUser extends Component {
     item.id = this.state.id; 
     item.name = this.state.name; 
     item.tel = this.state.tel; 
-    item.permision = this.state.permission; 
+    item.permission = this.state.permission; 
     this.props.saveChange(item);
   }
   render() {
@@ -39,11 +39,11 @@ class EditUser extends Component {
                     <input id="fName" className="form-control" name="name" type="text" placeholder="Tên user" onChange= {this.isChange} defaultValue={this.state.name}/>
                   </div>
                   <div className="form-group">
-                    <input id="fPhone" className="form-control" name="permision" type="text" placeholder="Điện thoại" onChange= {this.isChange} defaultValue={this.state.tel}/>
+                    <input id="fPhone" className="form-control" name="tel" type="text" placeholder="Điện thoại" onChange= {this.isChange} defaultValue={this.state.tel}/>
                   </div>
                   <div className="form-group">
-                    <select id="sJob" className="form-control" name="permission" defaultValue={this.state.permission} onChange= {this.isChange} required>
-                      <option defaultValue={1}>Chọn quyền mặc định</option>
+                    <select id="sJob" className="form-control" name="permission" defaultValue={this.state.permission} onChange= {this.isChange}>
+                      <option>Chọn quyền mặc định</option>
                       <option value={1}>Admin</option>
                       <option value={2}>Modrator</option>
                       <option value={3}>Normal</option>

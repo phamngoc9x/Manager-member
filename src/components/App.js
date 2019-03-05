@@ -4,7 +4,7 @@ import Header from './Header';
 import Search from './Search';
 import TableData from './TableData';
 import AddUser from './AddUser';
-import dataUser from './../Data.json';
+import dataUser from '../Data.json';
 import EditUser from './EditUser';
 const uuidv1 = require('uuid/v1');
 
@@ -15,11 +15,14 @@ class App extends Component {
       status:  true,
       data: dataUser,
       showEdit : false,
-      dataEdit: {}
+      dataEdit: {},
+      sText:''
     }
   }
   
   componentWillMount() {
+    //console.log(this.state.data);
+    
     if(localStorage.getItem('myData') === null){
       localStorage.setItem('myData', JSON.stringify(dataUser));
     }
@@ -30,6 +33,7 @@ class App extends Component {
       })
     }
   }
+
 
   // Edit User
   formChangeEdit = (data) => {
@@ -54,14 +58,15 @@ class App extends Component {
   }
 
   // Add Member 
-  receiveData = (name,tel,permisson) => {
+  receiveData = (name,tel,permission) => {
     var item = {};
     item.id = uuidv1();
     item.name = name;
     item.tel = tel;
-    item.permisson = permisson;
+    item.permission = permission;
     var items = this.state.data;
     items.push(item);
+
     this.setState({
       data: items,
     })
@@ -70,9 +75,16 @@ class App extends Component {
   // Save Change
   saveChange =(data) => {
     this.showEdit();
-    console.log(data.id)
+    console.log(data.permission);
+    data.permission= parseInt(data.permission);
+    console.log(data.permission);
+    var array = this.state.data;
+    var index = array.findIndex(({id}) => id === data.id);
+    console.log(array[index]);
+    array[index] = data;
+    localStorage.setItem('myData', JSON.stringify(array));
   }
-  // Dtempete User
+  // Delete User
   deleteUser = (id) => {
     var temp = this.state.data;
     temp.forEach((value, key) => {
@@ -83,16 +95,30 @@ class App extends Component {
     });
     localStorage.setItem('myData', JSON.stringify(temp));
   }
-
+  searchText = (dl) => {
+    this.setState({
+      sText: dl
+    })
+    //console.log(dl)
+  }
   render() {
+    var result = [];
+    //console.log(this.state.sText);
+    this.state.data.forEach(item => {
+      //console.log(item.name)
+      if (item.name.toLowerCase().indexOf(this.state.sText) !== -1) {
+        result.push(item);
+      }
+    });
+    //console.error(this.state.data)
     return (
       <div className="App">
         <Header/>
         {this.state.showEdit? <EditUser showEdit={this.state.showEdit} data = {this.state.dataEdit} saveChange ={(data)=>this.saveChange(data)} status={this.state.status}/> : ''}
-        <Search status={this.state.status} change={this.changeStatus}/>
+        <Search status= {this.state.status} change={this.changeStatus} search ={(text)=>this.searchText(text)}/>
         <div className="container">
             <div className="row">
-                <TableData dataUser= {this.state.data} status={this.state.status} getID={this.deleteUser} formChange={(data)=>this.formChangeEdit(data)}/>
+                <TableData dataUser= {result} status={this.state.status} getID={this.deleteUser} formChange={(data)=>this.formChangeEdit(data)}/>
                 <AddUser status={this.state.status} sendData={this.receiveData}/>
             </div>
         </div>

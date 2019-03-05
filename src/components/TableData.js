@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class TableData extends Component {
   render() {
+    //console.log(this.props.dataUser);
     return (
       <div className={this.props.status ? 'content col-9' :'content col-12'}>
         <table className="table table-striped table-light">
