@@ -2,7 +2,7 @@
   "name": "manager-member",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://phamngoc9x.github.io/manager-member",
+  "homepage": "http://phamngoc9x.github.io/managerApp",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.8.3",
