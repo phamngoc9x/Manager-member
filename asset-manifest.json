@@ -1,13 +1,13 @@
 {
-  "main.css": "/managerApp/static/css/main.a0db137a.chunk.css",
-  "main.js": "/managerApp/static/js/main.afa45d4d.chunk.js",
-  "main.js.map": "/managerApp/static/js/main.afa45d4d.chunk.js.map",
-  "runtime~main.js": "/managerApp/static/js/runtime~main.584dd208.js",
-  "runtime~main.js.map": "/managerApp/static/js/runtime~main.584dd208.js.map",
-  "static/js/2.b64673fb.chunk.js": "/managerApp/static/js/2.b64673fb.chunk.js",
-  "static/js/2.b64673fb.chunk.js.map": "/managerApp/static/js/2.b64673fb.chunk.js.map",
-  "index.html": "/managerApp/index.html",
-  "precache-manifest.6aa5e0dd74bf4d28723b5483a11051c3.js": "/managerApp/precache-manifest.6aa5e0dd74bf4d28723b5483a11051c3.js",
-  "service-worker.js": "/managerApp/service-worker.js",
-  "static/css/main.a0db137a.chunk.css.map": "/managerApp/static/css/main.a0db137a.chunk.css.map"
+  "main.css": "./static/css/main.a0db137a.chunk.css",
+  "main.js": "./static/js/main.f7f3f69a.chunk.js",
+  "main.js.map": "./static/js/main.f7f3f69a.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.8c97409f.js",
+  "runtime~main.js.map": "./static/js/runtime~main.8c97409f.js.map",
+  "static/js/2.b64673fb.chunk.js": "./static/js/2.b64673fb.chunk.js",
+  "static/js/2.b64673fb.chunk.js.map": "./static/js/2.b64673fb.chunk.js.map",
+  "index.html": "./index.html",
+  "precache-manifest.1f3de32556e3157ba3390869a850931f.js": "./precache-manifest.1f3de32556e3157ba3390869a850931f.js",
+  "service-worker.js": "./service-worker.js",
+  "static/css/main.a0db137a.chunk.css.map": "./static/css/main.a0db137a.chunk.css.map"
 }
